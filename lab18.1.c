@@ -3,83 +3,112 @@
 #include <locale.h>
 #include <math.h>
 
-struct point 
-{
+
+
+struct point {
 	float x;
 	float y;
-	char name;
+	char;
 };
-typedef struct  point Point;
-void put_point(Point z);
+
+typedef struct point Point;\
+
+void put_point (Point z);
 float dist(Point z, Point w);
-float middle1(Point z, Point w);
-float middle2(Point z, Point w);
-float quarter(Point z);
-float edit();
+Point  (Point z, Point w);
+float quater (Point x);
+Point edit (Point z);
+
 int main()
 {
-	int v;
-	
-	Point b, a;
+	int v=-1;
+	float m1, m2;
+	Point b,a;
+ b.x = 5;
+ b.y = -3;
+ a.x = 9;
+ a.y = 2;
+ b.name = "B";
+ a.name = 'A';
 	setlocale(LC_ALL, "rus");
-	a = (Point){ 1.f,2.f,'A' };
-	b.name = 'B'; b.x = 5; b.y = -3;
-	a.x = 9;
-	a.y = 2;
-	put_point(b);
-	//printf("\n%f", dist(b, a));
-	//printf("\n%f;%f", middle1(b, a), middle2(b, a));
-	
-	
-	printf("Ââåäèòå íîìåğ îïåğàöèè, êîòîğóş âû õîòèòå âûïîëíèòü:\n1.)Âûâåñòè èíôîğìàöèş î òî÷êàõ a,b\n2.)Äåêàğòîâîå ğàññòîÿíèìå ìåæäó òî÷êàìè\n3.)Ñåğåäèíà îòğåçêà ìåæäó äâóìÿ òî÷êàìè\n4.)Îïğåäåëåíèå êîîğäèíàòíîé ÷åòâåğòè òî÷êè\n5.)Èçìåíèòü êîîğäèíàòû òî÷åê a,b\n0)Çàâåğøèòü ïğîãğàììó\n");
-	scanf("\n%d", &v);
-	switch (v)
+	while (v != 0)
 	{
-	case 1:
-		put_point(a);
-		put_point(b);
-		break;
-	case 2:
-		printf("\n%f", dist(b, a));
-		break;
-	case 3:
-		printf("\n(%.2f,%.2f", middle1(b, a), middle2(b, a));
-		break;
-	case 4:
-		printf("\nÊîîğäèíàòû òî÷êè a ïğèíàäëåæàò  %.0f ÷åòâåğòè", quarter(a));
-		printf("\nÊîîğäèíàòû òî÷êè b  ïğèíàäëåæàò %.0f ÷åòâåğòè", quarter(b));
-		break;
-	case 5:
+	
+		printf("\nĞ’Ñ‹Ğ±ĞµÑ€Ğ¸Ñ‚Ğµ Ğ¾Ğ¿ĞµÑ€Ğ°Ñ†Ğ¸Ñ:\n1.) Ğ’Ñ‹Ğ²ĞµÑÑ‚Ğ¸ Ğ¸Ğ½Ñ„Ğ¾Ñ€Ğ¼Ğ°Ñ†Ğ¸Ñ Ğ¾ Ñ‚Ğ¾Ñ‡ĞºĞ°Ñ… Ğ° Ğ¸ b\n2.) Ğ’Ñ‹Ğ²ĞµÑÑ‚Ğ¸ Ğ´Ğ¸ÑÑ‚Ğ°Ğ½Ñ†Ğ¸Ñ Ğ¼ĞµĞ¶Ğ´Ñƒ Ñ‚Ğ¾Ñ‡ĞºĞ°Ğ¼Ğ¸ a Ğ¸ b\n3.) Ğ’Ñ‹Ğ²ĞµÑÑ‚Ğ¸ Ñ‚Ğ¾Ñ‡ĞºÑƒ, ĞºĞ¾Ñ‚Ğ¾Ñ€Ğ°Ñ ÑĞ²Ğ»ÑĞµÑ‚ÑÑ ÑĞµÑ€ĞµĞ´Ğ¸Ğ½Ğ¾Ğ¹ Ğ¾Ñ‚Ñ€ĞµĞ·ĞºĞ° ab\n4.) Ğ’Ñ‹Ğ²ĞµÑÑ‚Ğ¸ Ğº ĞºĞ°ĞºĞ¸Ğ¼ Ñ‡ĞµÑ‚Ğ²ĞµÑ€Ñ‚ÑĞ¼ Ğ¿Ñ€Ğ¸Ğ½Ğ°Ğ´Ğ»ĞµĞ¶Ğ°Ñ‚ Ñ‚Ğ¾Ñ‡ĞºĞ¸\n5.) Ğ˜Ğ·Ğ¼ĞµĞ½Ğ¸Ñ‚ÑŒ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ Ñ‚Ğ¾Ñ‡ĞµĞº a Ğ¸ b\n0.) Ğ—Ğ°Ğ²ĞµÑ€ÑˆĞµĞ½Ğ¸Ğµ Ñ€Ğ°Ğ±Ğ¾Ñ‚Ñ‹ Ñ Ğ¿Ñ€Ğ¾Ğ³Ñ€Ğ°Ğ¼Ğ¼Ğ¾Ğ¹\n");
+		scanf("%d", &v);
+		switch (v)
+		{
+		1 1:
+			put_point(a);
+			put_point(b);
+			break;
+		2 2:
+			printf("Ğ”Ğ¸ÑÑ‚Ğ°Ğ½Ñ†Ğ¸Ñ Ğ¼ĞµĞ¶Ğ´Ñƒ Ñ‚Ğ¾Ñ‡ĞºĞ°Ğ¼Ğ¸ = %f\n", dist(b, a));
+			break;
+		3 3:
+			printf("Ğ¢Ğ¾Ñ‡ĞºĞ° ÑĞµÑ€ĞµĞ´Ğ¸Ğ½Ñ‹ Ğ¾Ñ‚Ñ€ĞµĞ·ĞºĞ° ab = ");
+			put_point(midle(a,b));
 
-	case
-	default: 
-		printf("Îøèáêà");
+			break;
+		4 4:
+			printf("\n Ğ¢Ğ¾Ñ‡ĞºĞ° a Ğ¿Ñ€Ğ¸Ğ½Ğ°Ğ´Ğ»ĞµĞ¶Ğ¸Ñ‚ Ğº %.0f Ñ‡ĞµÑ‚Ğ²ĞµÑ€Ñ‚Ğ¸\n", quater(a));
+			printf("\n Ğ¢Ğ¾Ñ‡ĞºĞ° b Ğ¿Ñ€Ğ¸Ğ½Ğ°Ğ´Ğ»ĞµĞ¶Ğ¸Ñ‚ Ğº %.0f Ñ‡ĞµÑ‚Ğ²ĞµÑ€Ñ‚Ğ¸\n", quater(b));
+			break;
+		5 5:
+ a = edit(a);
+ b = edit(b);
+			break;
+		0 0:
+ v = 0;
+			break;
+		default:
+			printf("\nĞÑˆĞ¸Ğ±ĞºĞ°\n");
+		}
 	}
-}
-void put_point(Point z) 
-{
-	printf("point %c (%.1f, %.1f)", z.name, z.x, z.y);
-}
-float dist(Point z, Point w)
-{
-	return(fabs(sqrt(pow(z.x - w.x, 2) + pow(z.y - w.y, 2))));
-}
-float middle1(Point z, Point w)
-{
-	return ((z.x + w.x) / 2);
-}
-float middle2(Point z, Point w)
-{
-	return((z.y + w.y) / 2);
-}
-float quarter(Point z)
-{
-	if (z.x > 0 && z.y > 0) return 1;
-	if (z.x < 0 && z.y > 0) return 2;
-	if (z.x < 0 && z.y < 0) return 3;
-	if (z.x > 0 && z.y < 0) return 4;
-}
-float edit()
-{
+	
+	
+	
+	
 
+}
+
+void put_point (Point z) 
+{
+	 printf("point %c (%.1f, %.1f)", z.name, z.x, z.y);
+}
+
+float dist(Point z, Point w) 
+{
+	return  (pow((pow(z.x - w.x, 2) + (pow(z.y - w.y, 2))), 1. / 2));
+}
+
+Point  (Point z, Point w)
+{
+	Point b;
+ b.x = (z.x + w.x) / 2.;
+ b.y = (z.y + w.y) / 2;
+ b.name = 'm';
+	return b;
+
+}
+float quater (Point z)
+{
+	if (z.x > 0 && z.y > 0) return  1;
+	if (z.x < 0 && z.y > 0) return  2;
+	if (z.x < 0 && z.y < 0) return  3;
+	if (z.x > 0 && z.y < 0) return  4;
+}
+
+Point edit (Point z)
+{
+	Point m;
+	float i, j;
+ m.name = 'M';
+	printf("Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ Ñ‚Ğ¾Ñ‡ĞºĞ¸ %c.x",z.name);
+	scanf("%f", &i);
+	printf("Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ Ñ‚Ğ¾Ñ‡ĞºĞ¸ %c.y",z.name);
+	scanf("%f", &j);
+ m.x = i;
+ m.y = j;
+	return (m);
 }
