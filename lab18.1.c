@@ -112,3 +112,19 @@ Point edit(Point z)
 	m.y = j;
 	return (m);
 }
+    #define _CRT_SECURE_NO_DEPRECATE 
+    #include <stdio.h> 
+    #include <time.h> 
+    #include <math.h> 
+    #include <locale.h> 
+    struct tm *mytime; 
+    time_t t; 
+    void main() { 
+     setlocale(0, "rus"); 
+     t = time(NULL); 
+     mytime = localtime(&t); 
+     printf("***********************************************************************************************************************\n"); 
+     printf("************************************************* Московское время %02d:%02d:%02d********************************************\n", mytime->tm_hour, mytime->tm_min, mytime->tm_sec); 
+     printf("*********************************************До воскресенья %d часов и %d минут****************************************\n",(mytime->tm_wday)*24+(23-mytime->tm_hour),60-mytime->tm_min); 
+     printf("***********************************************************************************************************************"); 
+    }
