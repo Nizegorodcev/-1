@@ -8,28 +8,28 @@
 struct point {
 	float x;
 	float y;
-	char;
+	char name;
 };
 
 typedef struct point Point;\
 
-void put_point (Point z);
+void put_point(Point z);
 float dist(Point z, Point w);
-Point  (Point z, Point w);
-float quater (Point x);
-Point edit (Point z);
+Point midle(Point z, Point w);
+float quater(Point x);
+Point edit(Point z);
 
 int main()
 {
 	int v=-1;
 	float m1, m2;
 	Point b,a;
- b.x = 5;
- b.y = -3;
- a.x = 9;
- a.y = 2;
- b.name = "B";
- a.name = 'A';
+	b.x = 5;
+	b.y = -3;
+	a.x = 9;
+	a.y = 2;
+	b.name = 'B';
+	a.name = 'A';
 	setlocale(LC_ALL, "rus");
 	while (v != 0)
 	{
@@ -38,28 +38,28 @@ int main()
 		scanf("%d", &v);
 		switch (v)
 		{
-		1 1:
+		case 1:
 			put_point(a);
 			put_point(b);
 			break;
-		2 2:
+		case 2:
 			printf("Дистанция между точками = %f\n", dist(b, a));
 			break;
-		3 3:
+		case 3:
 			printf("Точка середины отрезка ab = ");
 			put_point(midle(a,b));
 
 			break;
-		4 4:
+		case 4:
 			printf("\n Точка a принадлежит к %.0f четверти\n", quater(a));
 			printf("\n Точка b принадлежит к %.0f четверти\n", quater(b));
 			break;
-		5 5:
- a = edit(a);
- b = edit(b);
+		case 5:
+			a = edit(a);
+			b = edit(b);
 			break;
-		0 0:
- v = 0;
+		case 0:
+			v = 0;
 			break;
 		default:
 			printf("\nОшибка\n");
@@ -72,43 +72,43 @@ int main()
 
 }
 
-void put_point (Point z) 
+void put_point(Point z) 
 {
 	 printf("point %c (%.1f, %.1f)", z.name, z.x, z.y);
 }
 
 float dist(Point z, Point w) 
 {
-	return  (pow((pow(z.x - w.x, 2) + (pow(z.y - w.y, 2))), 1. / 2));
+	return fabs(pow((pow(z.x - w.x, 2) + (pow(z.y - w.y, 2))), 1. / 2));
 }
 
-Point  (Point z, Point w)
+Point midle(Point z, Point w)
 {
 	Point b;
- b.x = (z.x + w.x) / 2.;
- b.y = (z.y + w.y) / 2;
- b.name = 'm';
+	b.x = (z.x + w.x) / 2.;
+	b.y = (z.y + w.y) / 2;
+	b.name = 'm';
 	return b;
 
 }
-float quater (Point z)
+float quater(Point z)
 {
-	if (z.x > 0 && z.y > 0) return  1;
-	if (z.x < 0 && z.y > 0) return  2;
-	if (z.x < 0 && z.y < 0) return  3;
-	if (z.x > 0 && z.y < 0) return  4;
+	if (z.x > 0 && z.y > 0) return 1;
+	if (z.x < 0 && z.y > 0) return 2;
+	if (z.x < 0 && z.y < 0) return 3;
+	if (z.x > 0 && z.y < 0) return 4;
 }
 
-Point edit (Point z)
+Point edit(Point z)
 {
 	Point m;
 	float i, j;
- m.name = 'M';
+	m.name = 'M';
 	printf("Введите значение точки %c.x",z.name);
 	scanf("%f", &i);
 	printf("Введите значение точки %c.y",z.name);
 	scanf("%f", &j);
- m.x = i;
- m.y = j;
+	m.x = i;
+	m.y = j;
 	return (m);
 }
