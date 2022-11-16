@@ -6,7 +6,7 @@
 struct tm* mytime;
 struct database
 {
-    char name, surname,reason;//имя, фамилия, причина
+    char name, surname,reason;//РёРјСЏ, С„Р°РјРёР»РёСЏ, РїСЂРёС‡РёРЅР°
     struct tm* mytime;
     
 };
@@ -16,7 +16,7 @@ void main()
     int v = 50;
     while (v != 0)
     {
-        printf("Выберите действие:\n");
+        printf("Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:\n");
         printf("");
     }
 }
