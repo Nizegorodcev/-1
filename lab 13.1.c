@@ -12,9 +12,9 @@ void main()
 	
 	system("chcp 1251 ");
 	setlocale(LC_ALL, "rus");
-	char Snew[20+N] = "Привет ";
+	char Snew[20+N] = "РџСЂРёРІРµС‚ ";
 	char Name[N];
-	printf("Введите имя пользователя:");
+	printf("Р’РІРµРґРёС‚Рµ РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ:");
 	scanf("%s", Name);
 	for (int i = 0; i < strlen(Name); i++)
 	{
