@@ -2,53 +2,76 @@
 #include <stdio.h>
 #include <locale.h>
 #include <math.h>
-#define N 1000
-float func(float x);
-double* full_elements(double* ptr_array, int n); //Á‡ÔÓÎÌÂÌËÂ Ï‡ÒÒË‚‡ ÒÎÛ˜‡ÈÌ˚ÏË ÁÌ‡˜ÂÌËˇÏË(ÌÂÚ)
-int put_elements(double* ptr_array, int n); //ÔÂ˜‡Ú¸ ˝ÎÂÏÂÌÚÓ‚ Ï‡ÒÒË‚‡
-double* calc_elements(double* ptr_array, int n); //Ó·‡·ÓÚÍ‡ ˝ÎÂÏÂÌÚÓ‚ Ï‡ÒÒË‚‡
-double sum_elements(double* ptr_array, int begin, int end);
+#define N  1000
+int func(int x);
+int* full_elements(int* ptr_array, int n); 
+int put_elements(int* ptr_array, int n); 
+int* calc_elements(int* ptr_array, int n); 
+int sum_elements(int* ptr_array, int begin, int end);
+int type(int v);
+int oneplus(int* ptr_array, int size);
+int lastplus(int* ptr_array, int size);
+int oneminus(int* ptr_array, int size);
+int lastminus(int* ptr_array, int size);
+int type(int v, int oneplus, int lastplus, int oneminus, int lastminus);
 void main()
 {
 	setlocale(LC_ALL, "rus");
-	double array[N];
+	int array[N];
 	int* ptr;
-	int size;
+	int;
 	int begin, end;
+	int size;
+	int v;
+	int a, b, c, d;
+	
 	puts("x^3 - 4 * x^2 + 2");
-	printf("¬‚Â‰ËÚÂ ‡ÁÏÂ Ï‡ÒÒË‚‡ >");
+	printf("–í–≤–µ–¥–∏—Ç–µ —á–∏—Å–ª–æ —ç–ª–µ–º–µ–Ω—Ç–æ–≤ –º–∞—Å—Å–∏–≤–∞ >");
 	scanf("%d", &size);
 	put_elements(full_elements(array, size), size);
 	printf("\n");
 	put_elements(calc_elements(array, size), size);
-	puts("¬‚Â‰ËÚÂ Ì‡˜‡ÎÓ ‰Ë‡Ô‡ÁÓÌ‡ ‰Îˇ ÒÛÏÏËÓ‚‡ÌËˇ ˜ÎÂÌÓ‚ Ï‡ÒÒË‚‡ ");
+	puts("–í–≤–µ–¥–∏—Ç–µ –Ω–∞—á–∞–ª–æ –¥–∏–∞–ø–∞–∑–æ–Ω–∞ —Å—É–º–º–∏—Ä–æ–≤–∞–Ω–∏—è ");
 	scanf("%d", &begin);
-	puts("¬‚Â‰ËÚÂ ÍÓÌÂˆ ‰Ë‡Ô‡ÁÓÌ‡ ‰Îˇ ÒÛÏÏËÓ‚‡ÌËˇ ˜ÎÂÌÓ‚ Ï‡ÒÒË‚‡ ");
-	scanf("%d\n", &end);
-	printf("%lf", sum_elements(array, begin, end));
+	puts("–í–≤–µ–¥–∏—Ç–µ –∫–æ–Ω–µ—Ü –¥–∏–∞–ø–∞–∑–æ–Ω–∞ —Å—É–º–º–∏—Ä–æ–≤–∞–Ω–∏—è ");
+	scanf("%d", &end);
+	if (end > size)
+	{
+		printf("–û—à–∏–±–∫–∞");
+	}
+	else printf("%i\n", sum_elements(array, begin, end));
+	printf("–í—ã–±–µ—Ä–∏—Ç–µ –º–µ–∂–¥—É –∫–∞–∫–æ–π –∏–Ω—Ç–µ—Ä–≤–∞–ª –≤—ã –±—É–¥–µ—Ç–µ —Ä–∞—Å—Å–º–∞—Ç—Ä–∏–≤–∞—Ç—å:\n1)–ü–æ–∏—Å–∫  –∏–Ω–¥–µ–∫—Å–∞ —ç–ª–µ–º–µ–Ω—Ç–∞ –Ω–∞—Ö–æ–¥—è—â–µ–≥–æ—Å—è –≤ —Å–µ—Ä–µ–¥–∏–Ω–µ –∏–Ω—Ç–µ—Ä–≤–∞–ª–∞ –º–µ–∂–¥—É –ø–µ—Ä–≤—ã–º –∏ –ø–æ—Å–ª–µ–¥–Ω–∏–º –ø–æ–ª–æ–∂–∏—Ç–µ–ª—å–Ω—ã–º —ç–ª–µ–º–µ–Ω—Ç–æ–º\n2)–ü–æ–∏—Å–∫ —ç–ª–µ–º–µ–Ω—Ç–∞ –Ω–∞—Ö–æ–¥—è—â–µ–≥–æ—Å—è –≤ —Å–µ—Ä–µ–¥–∏–Ω–µ –∏–Ω—Ç–µ—Ä–≤–∞–ª–∞ –º–µ–∂–¥—É –ø–µ—Ä–≤—ã–º –æ—Ç—Ä–∏—Ü–∞—Ç–µ–ª—å–Ω—ã–º –∏ –ø–æ—Å–ª–µ–¥–Ω–∏–º –æ—Ç—Ä–∏—Ü–∞—Ç–µ–ª—å–Ω—ã–º —ç–ª–µ–º–µ–Ω—Ç–æ–º");
+	scanf("%i", &v);
+	a = oneplus(array, size);
+	b = lastplus(array, size);
+	c = oneminus(array, size);
+	d = lastminus(array, size);
+	printf("%i", type(v, a, b, c, d));
 }
-float func(float x)
+int func(int x)
 {
-	float y;
+	int y;
 	y = pow(x, 3) - 4 * pow(x, 2) + 2;
 	return y;
 }
-double* full_elements(double* ptr_array, int n)
+int* full_elements(int* ptr_array, int n)
 {
+	int oneplus;
 	for (int i = 0; i < n; i++)
 	{
 		ptr_array[i] = func(i);
 	}
 	return ptr_array;
 }
-int put_elements(double* ptr_array, int n)
+int put_elements(int* ptr_array, int n)
 {
 	for (int i = 0; i < n; i++)
 	{
-		printf("%lf\n", ptr_array[i]);
+		printf("%i\n", ptr_array[i]);
 	}
+
 }
-double* calc_elements(double* ptr_array, int n)
+int* calc_elements(int* ptr_array, int n)
 {
 	for (int i = 0; i < n; i++)
 	{
@@ -56,15 +79,79 @@ double* calc_elements(double* ptr_array, int n)
 	}
 	return ptr_array;
 }
-double sum_elements(double* ptr_array, int begin, int end)
+int sum_elements(int* ptr_array, int begin, int end)
 {
-	double sum = 0;
-	for (; begin<end; begin++) 
+	int sum = 0;
+	for (; begin < end+1; begin++)
 	{
 		
 		sum = sum + ptr_array[begin];
-		
+
 	}
 	return sum;
 
+}
+int oneplus(int* ptr_array,int size)
+{
+	int a;
+	for (int i = 0; i < size; i++)
+	{
+		if (ptr_array[i] > 0)
+		{
+			a = i;
+			return a;
+		}
+		
+	}
+}
+int lastplus(int* ptr_array, int size)
+{
+	int b;
+	for (int i = 0; i < size; i++)
+	{
+		if (ptr_array[i] > 0)
+		{
+			b = i;
+		}
+	}
+	return b;
+
+}
+int oneminus(int* ptr_array, int size)
+{
+	int a;
+	for (int i = 0; i < size; i++)
+	{
+		if (ptr_array[i] < 0)
+		{
+			a = i;
+			return a;
+		}
+
+	}
+}
+int lastminus(int* ptr_array, int size)
+{
+	int b;
+	for (int i = 0; i < size; i++)
+	{
+		if (ptr_array[i] < 0)
+		{
+			b = i;
+		}
+	}
+	return b;
+}
+int type(int v,int oneplus,int lastplus,int oneminus, int lastminus)
+{
+	int c=0;
+	if (v == 1)
+	{
+		c = ((lastplus-oneplus)/2) +1;
+	}
+	if (v == 2)
+	{
+		c = ((lastminus - oneplus) / 2)+1;
+	}
+	return c;
 }
