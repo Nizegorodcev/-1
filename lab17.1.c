@@ -1,50 +1,74 @@
-#define _CRT_SECURE_NO_DEPRECATE
 #include <stdio.h>
-#include <locale.h>
-#include <math.h>
-#include<stdlib.h>
-#define N  20
-int sort_buble(int* ptrarr);
-int put(int* ptrarr);
-int putmassive(int* ptrarr);
-void main(void)
-{
-	int A[N];
-	put(A);
-	printf("\n");
-	//sort_buble(put(A));
-	putmassive(sort_buble(A));
+#include <stdlib.h>
+#include <time.h>
+
+void sort_buble(int*ptrarr, int n);
+//void sort_shaker(int*ptrarr, int n);
+//void sort_select(int*ptrarr, int n);
+void sort_insert(int*ptrarr, int n);
+void Creat(int*ptrarr, int n);
+
+int main() {
+    int stime;
+    long ltime;
+    ltime = time(NULL);
+    stime = (unsigned) ltime/2;
+    srand(stime);
+    
+    int n;
+    printf("Введите размер массива: ");
+    scanf("%d", &n);
+    int ptrarr[n];
+    Creat(ptrarr, n);
+    for (int i=0;i<n;i++){
+        printf("%i ",ptrarr[i]);
+    }
+    printf("\nСортировка пузырьком\n");
+    
+    sort_buble(ptrarr, n);
+    for (int i=0;i<n;i++){
+        printf("%i ",ptrarr[i]);
+    }
+    printf("\nСортировка вставками\n");
+    
+    sort_insert(ptrarr, n);
+    for (int i=0;i<n;i++){
+        printf("%i ",ptrarr[i]);
+    }
+    printf("\n");
+
 }
-int sort_buble(int* ptrarr)
-{
-	int tmp;
-	for (int i = 0; i < N; i++)
-	{
-		for (int j = 0; j < N-1; j++)
-		{
-			if (ptrarr[j] > ptrarr[j + 1])
-			{
-				tmp = ptrarr[j];
-				ptrarr[j] = ptrarr[j + 1];
-				ptrarr[j + 1] = tmp;
-			}
-		}
-		
-	}
-	return ptrarr;
+
+void Creat(int*ptrarr, int n){
+    for(int i = 0 ; i < n; i++) {
+        ptrarr[i]=(rand() % 9) + 1;
+    }
 }
-int put(int* ptrarr)
-{
-	for (int i = 0; i < N; i++)
-	{
-		ptrarr[i] = rand();
-		printf("%i\n", ptrarr[i]);
-	}
+
+void sort_insert(int*a, int n){
+    int temp;
+    int j;
+    for (int i = 1; i<n-1;i++){
+        temp=a[i];
+        j=i;
+        if (a[j-1]>temp && j>0){
+            a[j]=a[j-1];
+            j--;
+        }else{
+            a[j]=temp;
+        }
+    }
 }
-int putmassive(int* ptrarr)
-{
-	for (int i = 0; i < N; i++)
-	{
-		printf("%d\n", ptrarr[i]);
-	}
+    
+void sort_buble(int*a, int n){
+    int i, j;
+    for(i = 0 ; i < n - 1; i++) {
+        for(j = 0 ; j < n - i - 1 ; j++) {
+            if(a[j] > a[j+1]) {
+                int tmp = a[j];
+                a[j] = a[j+1] ;
+                a[j+1] = tmp;
+            }
+        }
+    }
 }
