@@ -1,4 +1,5 @@
 #define _CRT_SECURE_NO_DEPRECATE
+#define _CRT_SECURE_NO_DEPRECATE
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
@@ -20,13 +21,13 @@ int main() {
 	reys** Reys;
 	Reys
 
-		for (int i = 0; i < 20; i++) {
-			Reys.numberreys[i] = rand() % 601;
-			int x = 0;
-			x = rand() % 2;
-			if (x == 0) Reys.direction[i] = "Ïðèëåòàåò";
-			else Reys.direction[i] = "Óëåòàåò";
-		}
+	for (int i = 0; i < 20; i++) {
+		Reys.numberreys[i] = rand() % 601;
+		int x = 0;
+		x = rand() % 2;
+		if (x == 0) Reys.direction[i] = "ÐŸÑ€Ð¸Ð»ÐµÑ‚Ð°ÐµÑ‚";
+		else Reys.direction[i] = "Ð£Ð»ÐµÑ‚Ð°ÐµÑ‚";
+	}
 	for (int i = 0; i < 5; i++) {
 		if (i == 0) Reys.mark[i] = "Opel";
 		else if (i == 1) Reys.mark[i] = "Pegasus";
@@ -34,7 +35,7 @@ int main() {
 		else if (i == 3) Reys.mark[i] = "Flying Bell";
 		else if (i == 4) Reys.mark[i] = "Gold Lotus";
 	}
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < 20; i++){
 		Reys.infly[i] = (rand() % 23) + 1;
 		Reys.outfly[i] = (rand() % 23) + 1;
 		Reys.distance[i] = (rand() % 1300) + 100;
@@ -45,14 +46,14 @@ int main() {
 }
 
 int writefile(char* fname, reys* reys, int size) {
-	FILE* out;
+	FILE *out;
 	if ((out = fopen(fname, "wt")) == NULL) {
-		printf("Îøèáêà ïðè îòêðûòèè ôàéëà");
+		printf("ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ð¸ Ñ„Ð°Ð¹Ð»Ð°");
 		return 0;
 	}
 
 	for (int i = 0; i < size; i++) {
-		fprintf(out, "Íîìåð ðåéñà: %20s; Âðåìÿ âûëåòà: %20d:00; Âðåìÿ ïðèëåòà: %20d:00; Íàïðàâëåíèå:; Ìàðêà ñàìîëåòà: %5s; Äèñòàíöèÿ ïîëåòà â êì: %20d; Âðåìÿ ïîëåòà â ÷àñàõ: %20d;", reys[i].numberreys, reys[i].infly, reys[i].outfly, reys[i].direction, reys[i].mark, reys[i].distance, reys[i].flytime);
+		fprintf(out, "ÐÐ¾Ð¼ÐµÑ€ Ñ€ÐµÐ¹ÑÐ°: %20s; Ð’Ñ€ÐµÐ¼Ñ Ð²Ñ‹Ð»ÐµÑ‚Ð°: %20d:00; Ð’Ñ€ÐµÐ¼Ñ Ð¿Ñ€Ð¸Ð»ÐµÑ‚Ð°: %20d:00; ÐÐ°Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ:; ÐœÐ°Ñ€ÐºÐ° ÑÐ°Ð¼Ð¾Ð»ÐµÑ‚Ð°: %5s; Ð”Ð¸ÑÑ‚Ð°Ð½Ñ†Ð¸Ñ Ð¿Ð¾Ð»ÐµÑ‚Ð° Ð² ÐºÐ¼: %20d; Ð’Ñ€ÐµÐ¼Ñ Ð¿Ð¾Ð»ÐµÑ‚Ð° Ð² Ñ‡Ð°ÑÐ°Ñ…: %20d;", reys[i].numberreys, reys[i].infly, reys[i].outfly, reys[i].direction, reys[i].mark, reys[i].distance, reys[i].flytime);
 		fclose(out);
 		return 1;
 	}
